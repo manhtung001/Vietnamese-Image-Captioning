@@ -1,0 +1,22 @@
+# pip install -r requirements.txt
+# python==3.7
+
+# API ----------------------------------------
+uvicorn
+fastapi
+python-multipart
+
+
+# Base ----------------------------------------
+matplotlib>=3.2.2
+numpy>=1.18.5
+requests>=2.23.0
+scipy>=1.4.1
+pandas>=1.1.4
+
+tensorflow==2.8.2
+
+# Plotting ------------------------------------
+seaborn>=0.11.0
+
+
