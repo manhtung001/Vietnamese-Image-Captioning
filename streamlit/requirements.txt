@@ -1,0 +1,11 @@
+streamlit==1.6
+numpy==1.19.5
+altair==4.1.0
+pandas==1.2.5
+scipy==1.6.2
+click==8
+
+# streamlit run C:/Users/GL75/Desktop/example-app-ab-testing/streamlit_app.py
+
+
+tensorflow==2.5.0

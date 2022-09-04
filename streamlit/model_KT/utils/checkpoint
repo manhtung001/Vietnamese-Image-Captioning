@@ -1,0 +1,2 @@
+model_checkpoint_path: "image_features_extract_model_weight"
+all_model_checkpoint_paths: "image_features_extract_model_weight"
