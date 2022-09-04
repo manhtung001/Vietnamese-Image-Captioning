@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a0b8dbc0-cf5d-446c-825d-a2ba011410b1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Vietnamese-Image-Captioning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Vietnamese-Image-Captioning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/Website_Results.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/ab_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/streamlit/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/streamlit_app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit/streamlit_app_sk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/CNN_Encoder_weight.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/CNN_Encoder_weight.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/RNN_Decoder_weight.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/RNN_Decoder_weight.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/image_features_extract_model_weight.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/image_features_extract_model_weight.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/tv_layer.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilsHandle.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/streamlit" />
+  </component>
+  <component name="ProjectId" id="2EIgRWEvNGTk1doELbZ5YR7JqwV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.api">
+    <configuration name="api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vietnamese-Image-Captioning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fastapi/api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="streamlit_app_submit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vietnamese-Image-Captioning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/streamlit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/streamlit/streamlit_app_submit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.api" />
+        <item itemvalue="Python.streamlit_app_submit" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0b8dbc0-cf5d-446c-825d-a2ba011410b1" name="Changes" comment="" />
+      <created>1662288504955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662288504955</updated>
+    </task>
+    <servers />
+  </component>
+</project>

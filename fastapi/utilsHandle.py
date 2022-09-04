@@ -29,14 +29,6 @@ attention_features_shape = 64
 # Create mappings for words to indices and indices to words.
 import pickle
 
-if __name__ == '__main__':
-    def standardize(inputs):
-        inputs = tf.strings.lower(inputs)
-        return tf.strings.regex_replace(inputs,
-                                        r"!\"#$%&\(\)\*\+.,-/:;=?@\[\\\]^_`{|}~", "")
-
-
-# from tensorflow.keras.layers import TextVectorization
 
 def standardize(inputs):
     inputs = tf.strings.lower(inputs)
@@ -215,7 +207,8 @@ def evaluate_load(image):
     features = encoder_load(img_tensor_val)
 
     dec_input = tf.expand_dims([word_to_index('<start>')], 0)
-    result = []
+
+    result = ""
 
     for i in range(max_length):
         predictions, hidden, attention_weights = decoder_load(dec_input,
@@ -225,11 +218,14 @@ def evaluate_load(image):
         attention_plot[i] = tf.reshape(attention_weights, (-1,)).numpy()
 
         predicted_id = tf.random.categorical(predictions, 1)[0][0].numpy()
-        predicted_word = tf.compat.as_text(index_to_word(predicted_id).numpy())
-        result.append(predicted_word)
+
+        predicted_word = tf.compat.as_text(index_to_word(tf.constant(predicted_id)).numpy())
 
         if predicted_word == '<end>':
             return result, attention_plot
+
+        result += predicted_word
+        result += " "
 
         dec_input = tf.expand_dims([predicted_id], 0)
 

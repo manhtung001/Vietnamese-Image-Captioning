@@ -7,7 +7,6 @@ import os
 import tensorflow as tf
 import pickle
 
-
 app = FastAPI(title='Vietnamese Image Captioning VinBigdata Project')
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -57,12 +56,6 @@ async def uploadImg(fileUpload: UploadFile = File(...)):
         "result": res,
     }
 
-# Allows the server to be run in this interactive environment
-    # nest_asyncio.apply()
-
-    # Host depends on the setup you selected (docker or virtual env)
-
-
 
 if __name__ == '__main__':
     def standardize(inputs):
@@ -70,13 +63,10 @@ if __name__ == '__main__':
         return tf.strings.regex_replace(inputs,
                                         r"!\"#$%&\(\)\*\+.,-/:;=?@\[\\\]^_`{|}~", "")
 
+
     from utilsHandle import *
 
     host = "0.0.0.0" if os.getenv("DOCKER-SETUP") else "127.0.0.1"
 
     # Spin up the server!
     uvicorn.run(app, host=host, port=8000)
-
-
-
-
