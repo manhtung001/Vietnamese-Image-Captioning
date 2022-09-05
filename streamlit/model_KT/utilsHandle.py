@@ -171,12 +171,6 @@ def get_path():
 # pathImg.set_path_card(join(path_folder, imgPath))
 
 
-def predict(source):
-    result = "ok"
-    print(result)
-    return result
-
-
 def load_image(image_path):
     img = tf.io.read_file(image_path)
     img = tf.io.decode_jpeg(img, channels=3)
@@ -223,3 +217,43 @@ def evaluate_load(image):
 
     attention_plot = attention_plot[:len(result), :]
     return result, attention_plot
+
+
+def predict(image):
+    attention_plot = np.zeros((max_length, attention_features_shape))
+
+    hidden = decoder_load.reset_state(batch_size=1)
+
+    temp_input = tf.expand_dims(load_image(image)[0], 0)
+    img_tensor_val = image_features_extract_model_load(temp_input)
+    img_tensor_val = tf.reshape(img_tensor_val, (img_tensor_val.shape[0],
+                                                 -1,
+                                                 img_tensor_val.shape[3]))
+
+    features = encoder_load(img_tensor_val)
+
+    dec_input = tf.expand_dims([word_to_index('<start>')], 0)
+
+    result = ""
+
+    for i in range(max_length):
+        predictions, hidden, attention_weights = decoder_load(dec_input,
+                                                              features,
+                                                              hidden)
+
+        attention_plot[i] = tf.reshape(attention_weights, (-1,)).numpy()
+
+        predicted_id = tf.random.categorical(predictions, 1)[0][0].numpy()
+
+        predicted_word = tf.compat.as_text(index_to_word(tf.constant(predicted_id)).numpy())
+
+        if predicted_word == '<end>':
+            return result
+
+        result += predicted_word
+        result += " "
+
+        dec_input = tf.expand_dims([predicted_id], 0)
+
+    attention_plot = attention_plot[:len(result), :]
+    return result

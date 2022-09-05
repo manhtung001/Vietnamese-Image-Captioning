@@ -67,6 +67,12 @@ class History:
 
 history = History()
 
+
+def changeCheckBox():
+    print("changeCheckBox")
+    # st.experimental_rerun()
+
+
 print("head")
 
 with st.form("my-form", clear_on_submit=True):
@@ -79,6 +85,32 @@ with st.form("my-form", clear_on_submit=True):
         key="model",
         help="TBD",
     )
+
+    #False is checked
+    use_all = st.checkbox('use all', value=True, on_change=changeCheckBox())
+    not_use_all = st.checkbox('not use all', value=True, on_change=changeCheckBox())
+
+    if use_all is not False and not_use_all is not False:
+        st.experimental_rerun()
+
+    # if agree is not False:
+    #     options = st.multiselect(
+    #         'What are your favorite colors',
+    #         ['Green', 'Yellow', 'Red', 'Blue'])
+
+    # if not name:
+    #     st.warning('Please input a name.')
+    #     st.stop()
+    #
+    #     st.experimental_rerun()
+
+    # if agree:
+    #     print("use all")
+    # else:
+    #     print("dont use all")
+
+    #
+    #     st.write('You selected:', options)
 
     submitted = st.form_submit_button("UPLOAD!")
 
@@ -121,6 +153,12 @@ else:
 
 print("history.model")
 print(history.model)
+
+st.write("History")
+
+# with st.expander("History"):
+#
+#      for
 
 col1, col2 = st.columns(2)
 
