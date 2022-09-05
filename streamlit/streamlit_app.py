@@ -37,7 +37,9 @@ import os
 import shutil
 
 # for model_KT
-from model_KT.utilsHandle import evaluate_load
+from model_KT import utilsHandle as utilsKT
+
+from model_Phu import utils as utilsPhu
 
 
 @st.cache
@@ -91,8 +93,6 @@ if submitted and uploaded_file is not None:
         file_object.write(uploaded_file.read())
     print(f"info: file {uploaded_file.name} saved at {file_location}")
 
-    print("model type:", ab)
-
     # st.markdown("### Data preview")
     # st.image(file_location)
 
@@ -105,8 +105,12 @@ if submitted and uploaded_file is not None:
     st.write("")
 
     # Obtain the metrics to display
-
-    res, attention_plot = evaluate_load(file_location)
+    if ab == 'model_KT':
+        print("model type model_KT")
+        res, attention_plot = utilsKT.evaluate_load(file_location)
+    elif ab == 'model_Phu':
+        print("model type model_Phu")
+        res = utilsPhu.predict(file_location)
 
     st.image(file_location, caption=res)
 
