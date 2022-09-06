@@ -17,13 +17,13 @@ from keras import Input, layers
 from keras.applications.inception_v3 import preprocess_input
 from keras.preprocessing.sequence import pad_sequences
 
-with open('streamlit/model_Phu/embedding_matrix.npy', 'rb') as f:
+with open('streamlit/model_InceptionV3_LSTM/embedding_matrix.npy', 'rb') as f:
     embedding_matrix = np.load(f)
 
-with open('streamlit/model_Phu/word2idx.pkl', 'rb') as f:
+with open('streamlit/model_InceptionV3_LSTM/word2idx.pkl', 'rb') as f:
     word2idx = pickle.load(f)
 
-with open('streamlit/model_Phu/idx2word.pkl', 'rb') as f:
+with open('streamlit/model_InceptionV3_LSTM/idx2word.pkl', 'rb') as f:
     idx2word = pickle.load(f)
 
 # Get the InceptionV3 model trained on imagenet data
@@ -78,7 +78,7 @@ model = Model(inputs=[inputs1, inputs2], outputs=outputs)
 model.layers[2].set_weights([embedding_matrix])
 model.layers[2].trainable = False
 
-model.load_weights('streamlit/model_Phu/Info0_PhoW2V_syl_300___InceptionV39.h5')
+model.load_weights('streamlit/model_InceptionV3_LSTM/Info0_PhoW2V_syl_300___InceptionV39.h5')
 
 
 def greedySearch(photo):

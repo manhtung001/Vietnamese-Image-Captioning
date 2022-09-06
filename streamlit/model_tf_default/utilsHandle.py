@@ -29,7 +29,7 @@ attention_features_shape = 64
 # Create mappings for words to indices and indices to words.
 import pickle
 
-with open("streamlit/model_KT/utils/get_vocabulary.txt", 'r', encoding="utf8") as f:
+with open("streamlit/model_tf_default/utils/get_vocabulary.txt", 'r', encoding="utf8") as f:
     vocabulary = [line.rstrip('\n') for line in f]
 
 word_to_index = tf.keras.layers.experimental.preprocessing.StringLookup(
@@ -143,9 +143,9 @@ hidden_layer = image_model.layers[-1].output
 image_features_extract_model_load = tf.keras.Model(new_input, hidden_layer)
 
 # Restore the weights
-encoder_load.load_weights('streamlit/model_KT/utils/CNN_Encoder_weight')
-decoder_load.load_weights('streamlit/model_KT/utils/RNN_Decoder_weight')
-image_features_extract_model_load.load_weights('streamlit/model_KT/utils/image_features_extract_model_weight')
+encoder_load.load_weights('streamlit/model_tf_default/utils/CNN_Encoder_weight')
+decoder_load.load_weights('streamlit/model_tf_default/utils/RNN_Decoder_weight')
+image_features_extract_model_load.load_weights('streamlit/model_tf_default/utils/image_features_extract_model_weight')
 
 
 class pathImg:

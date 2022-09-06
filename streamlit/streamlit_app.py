@@ -29,17 +29,17 @@ result_default = None
 # If CSV is not uploaded and checkbox is filled, use values from the example file
 # and pass them down to the next if block
 # if use_example_file:
-#     uploaded_file = "model_KT/test.jpg"
+#     uploaded_file = "model_tf_default/test.jpg"
 #     ab_default = ["variant"]
 #     result_default = ["converted"]
 
 import os
 import shutil
 
-# for model_KT
-from model_KT import utilsHandle as utilsKT
+# for model_tf_default
+from model_tf_default import utilsHandle as utilsKT
 
-from model_Phu import utils as utilsPhu
+from model_InceptionV3_LSTM import utils as utils_InceptionV3_LSTM
 
 
 @st.cache
@@ -60,8 +60,8 @@ reset_folder()
 class History:
     def __init__(self):
         self.model = {
-            'model_KT': {},
-            'model_Phu': {}
+            'model_tf_default': {},
+            'model_InceptionV3_LSTM': {}
         }
 
 
@@ -80,7 +80,7 @@ with st.form("my-form", clear_on_submit=True):
 
     ab = st.radio(
         "model type",
-        options=["model_KT", "model_Phu"],
+        options=["model_tf_default", "model_InceptionV3_LSTM"],
         index=0,
         key="model",
         help="TBD",
@@ -137,12 +137,12 @@ if submitted and uploaded_file is not None:
     st.write("")
 
     # Obtain the metrics to display
-    if ab == 'model_KT':
-        print("model type model_KT")
+    if ab == 'model_tf_default':
+        print("model type model_tf_default")
         res, attention_plot = utilsKT.evaluate_load(file_location)
-    elif ab == 'model_Phu':
-        print("model type model_Phu")
-        res = utilsPhu.predict(file_location)
+    elif ab == 'model_InceptionV3_LSTM':
+        print("model type model_InceptionV3_LSTM")
+        res = utils_InceptionV3_LSTM.predict(file_location)
 
     st.image(file_location, caption=res)
 
@@ -163,13 +163,13 @@ st.write("History")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header("model_KT")
-    for key, value in history.model['model_KT'].items():
+    st.header("model_tf_default")
+    for key, value in history.model['model_tf_default'].items():
         st.image(key, caption=value)
 
 with col1:
-    st.header("model_Phu")
-    for key, value in history.model['model_Phu'].items():
+    st.header("model_InceptionV3_LSTM")
+    for key, value in history.model['model_InceptionV3_LSTM'].items():
         st.image(key, caption=value)
 
 # if MyVar == "Whatever value you want to monitor":

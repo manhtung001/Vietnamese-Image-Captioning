@@ -4,20 +4,19 @@ st.set_page_config(
     page_title="Vietnamese Image Captioning", page_icon="📊", initial_sidebar_state="expanded"
 )
 
-st.write(
+st.header(
     """
-# 📊 A/B Testing App
-Upload your experiment results to see the significance of your A/B test.
+Vietnamese Image Captioning
 """
 )
 
 import os
 import shutil
 
-# for model_KT
-from model_KT import utilsHandle as utilsKT
+# for model_tf_default
+from model_tf_default import utilsHandle as utilsKT
 
-from model_Phu import utils as utilsPhu
+from model_InceptionV3_LSTM import utils as utilsPhu
 
 
 @st.cache
@@ -51,6 +50,7 @@ def showHistory():
             st.image(img_path)
             for key, value in history.image[img_path].items():
                 st.write(key + ": ", value)
+            st.write("")
 
 
 print("head")
@@ -65,7 +65,7 @@ if uploaded_file is None:
 use_all = st.checkbox('use all', value=False)
 
 options = []
-all_model = {"model_KT": utilsKT.predict, "model_Phu": utilsPhu.predict}
+all_model = {"model_tf_default": utilsKT.predict, "model_InceptionV3_LSTM": utilsPhu.predict}
 
 if use_all == False:
     options = st.multiselect(
@@ -86,9 +86,17 @@ if st.button('Predict'):
         file_object.write(uploaded_file.read())
     print(f"info: file {uploaded_file.name} saved at {file_location}")
     history.image[file_location] = {}
+    result = {}
     for model in options:
-        # result = {model: all_model[model](file_location)}
-        history.image[file_location].update({model: all_model[model](file_location)})
+        result.update({model: all_model[model](file_location)})
+        # history.image[file_location].update({model: all_model[model](file_location)})
+    history.image[file_location] = result
+
+    st.image(file_location)
+    for key, value in result.items():
+        st.write(key + ": ", value)
+    st.write("")
+
 
 print("history.image")
 print(history.image)
