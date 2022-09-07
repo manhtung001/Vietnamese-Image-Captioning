@@ -48,17 +48,6 @@ def preprocess(image_path):
 
     return x
 
-
-# Function to encode a given image into a vector of size (2048, )
-def encode_for_testing(image, model):
-    image = preprocess(image)
-    # Get the encoding vector for the image
-    feature_vector = model.predict(image)
-    # Reshape from (1, 2048) to (2048,)
-    feature_vector = np.reshape(feature_vector, feature_vector.shape[1])
-    return feature_vector
-
-
 max_length = 35
 vocab_size = 634
 embedding_dim = 300
@@ -81,6 +70,16 @@ model.layers[2].trainable = False
 model.load_weights('streamlit/model_InceptionV3_LSTM/Info0_PhoW2V_syl_300___InceptionV39.h5')
 
 
+# Function to encode a given image into a vector of size (2048, )
+def encode_for_testing(image, model):
+    image = preprocess(image)
+    # Get the encoding vector for the image
+    feature_vector = model.predict(image)
+    # Reshape from (1, 2048) to (2048,)
+    feature_vector = np.reshape(feature_vector, feature_vector.shape[1])
+    return feature_vector
+
+
 def greedySearch(photo):
     in_text = 'startseq'
     for i in range(max_length):
@@ -101,6 +100,8 @@ def greedySearch(photo):
 def predict(path_img):
     image_tmp = encode_for_testing(path_img, modelInceptionV3).reshape(1, 2048)
     return greedySearch(image_tmp)
+
+
 
 # pic = '/content/test.jpg'
 # print(pic)

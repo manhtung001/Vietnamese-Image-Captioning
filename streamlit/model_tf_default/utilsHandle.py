@@ -148,29 +148,6 @@ decoder_load.load_weights('streamlit/model_tf_default/utils/RNN_Decoder_weight')
 image_features_extract_model_load.load_weights('streamlit/model_tf_default/utils/image_features_extract_model_weight')
 
 
-class pathImg:
-    def __init__(self):
-        path_card = ''
-        path_avatar = ''
-
-    def set_path_card(self, path):
-        self.path_Card = path
-
-    def set_path_avatar(self, path):
-        self.path_avatar = path
-
-
-pathImg = pathImg()
-
-
-def get_path():
-    return pathImg
-
-
-# pathImg.set_path_avatar(join(path_folder, imgPath))
-# pathImg.set_path_card(join(path_folder, imgPath))
-
-
 def load_image(image_path):
     img = tf.io.read_file(image_path)
     img = tf.io.decode_jpeg(img, channels=3)

@@ -80,16 +80,22 @@ if len(options) == 0:
 
 if st.button('Predict'):
 
-    # save img
+    # save image
     file_location = f"streamlit/tmp/{uploaded_file.name}"
     with open(file_location, "wb+") as file_object:
         file_object.write(uploaded_file.read())
     print(f"info: file {uploaded_file.name} saved at {file_location}")
+
+    # create history for new image
     history.image[file_location] = {}
     result = {}
+
+    # run every model in option that user choose and predict
     for model in options:
+        # append caption from every model in option that user choose and predict
         result.update({model: all_model[model](file_location)})
-        # history.image[file_location].update({model: all_model[model](file_location)})
+
+    # update caption from models in options, relate to file_location(img upload)
     history.image[file_location] = result
 
     st.image(file_location)
